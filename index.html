@@ -4,369 +4,388 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Pancake Cafe Lumiere</title>
-  <meta
-    name="description"
-    content="ふわっとほどける、しあわせパンケーキ。Pancake Cafe Lumiere のやさしく上品なカフェ時間を紹介するランディングページです。"
-  >
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            cream: "#FFFAF5",
-            blush: "#FDF1EC",
-            cocoa: "#4B3F3A",
-            apricot: "#E8BFAF",
-            rosewood: "#C98F7A",
-            butter: "#FFF2C7"
-          },
-          fontFamily: {
-            sans: ['"Hiragino Sans"', '"Yu Gothic"', "sans-serif"],
-            display: ['"Georgia"', '"Times New Roman"', "serif"]
-          },
-          boxShadow: {
-            soft: "0 24px 60px rgba(75, 63, 58, 0.08)"
-          },
-          backgroundImage: {
-            glow: "radial-gradient(circle at top left, rgba(232, 191, 175, 0.45), transparent 42%), radial-gradient(circle at bottom right, rgba(255, 242, 199, 0.5), transparent 38%)"
-          }
-        }
-      }
-    };
-  </script>
+  <meta name="description" content="ふわっとほどける、しあわせパンケーキ。Pancake Cafe Lumiere のやさしく上品なカフェ時間を紹介するランディングページです。">
+  <style>
+    :root {
+      --cream: #fffaf5;
+      --blush: #fdf1ec;
+      --cocoa: #4b3f3a;
+      --apricot: #e8bfaf;
+      --rose: #c98f7a;
+      --butter: #fff2c7;
+      --card: rgba(255,255,255,0.82);
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "Hiragino Sans", "Yu Gothic", sans-serif;
+      color: var(--cocoa);
+      background:
+        radial-gradient(circle at top left, rgba(232,191,175,.36), transparent 28%),
+        radial-gradient(circle at bottom right, rgba(255,242,199,.46), transparent 30%),
+        var(--cream);
+      line-height: 1.7;
+    }
+    a { color: inherit; text-decoration: none; }
+    .wrap { max-width: 1120px; margin: 0 auto; padding: 0 20px; }
+    header {
+      position: sticky; top: 0; z-index: 10;
+      backdrop-filter: blur(10px);
+      background: rgba(255,250,245,.85);
+      border-bottom: 1px solid #f0ddd4;
+    }
+    .nav {
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 16px 0;
+    }
+    .brand {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 28px; letter-spacing: .12em;
+    }
+    .nav-links { display: flex; gap: 22px; font-size: 14px; }
+    .hero {
+      display: grid;
+      grid-template-columns: 1.05fr .95fr;
+      gap: 40px;
+      align-items: center;
+      padding: 56px 0 40px;
+    }
+    .eyebrow {
+      display: inline-block;
+      padding: 8px 14px;
+      border-radius: 999px;
+      background: rgba(255,255,255,.8);
+      color: var(--rose);
+      font-size: 12px;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+    }
+    h1, h2 {
+      margin: 18px 0 0;
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.15;
+    }
+    h1 { font-size: clamp(40px, 7vw, 72px); }
+    h2 { font-size: clamp(32px, 5vw, 52px); }
+    .lead { margin-top: 22px; font-size: 17px; color: rgba(75,63,58,.82); }
+    .actions { display: flex; gap: 14px; margin-top: 28px; flex-wrap: wrap; }
+    .btn {
+      display: inline-block;
+      padding: 14px 24px;
+      border-radius: 999px;
+      font-size: 14px;
+      font-weight: 700;
+    }
+    .btn-primary { background: var(--rose); color: #fff; }
+    .btn-secondary { background: rgba(255,255,255,.82); border: 1px solid rgba(201,143,122,.35); }
+    .stats {
+      margin-top: 28px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      background: rgba(255,255,255,.7);
+      border-radius: 28px;
+      padding: 18px;
+    }
+    .stat-label { font-size: 12px; opacity: .55; text-transform: uppercase; letter-spacing: .18em; }
+    .stat-value { font-size: 20px; font-weight: 700; margin-top: 6px; }
+    .hero-art, .art-small {
+      position: relative;
+      overflow: hidden;
+      border-radius: 40px;
+      background: linear-gradient(160deg, #fff7ef, #f6d9cd);
+      box-shadow: 0 24px 60px rgba(75,63,58,.08);
+    }
+    .hero-art { min-height: 560px; }
+    .plate, .mini-plate {
+      position: absolute; left: 50%; transform: translateX(-50%);
+      border-radius: 50%;
+      background: linear-gradient(180deg, #fffdfb, #eeded5);
+    }
+    .plate { bottom: 76px; width: 72%; height: 112px; }
+    .mini-plate { bottom: 34px; width: 76%; height: 62px; }
+    .stack, .mini-stack {
+      position: absolute; left: 50%; transform: translateX(-50%);
+      border-radius: 999px;
+      background: linear-gradient(180deg, #f7d99c, #d8a260);
+      box-shadow: inset 0 -10px 0 rgba(180,120,58,.18);
+    }
+    .stack.one { width: 52%; height: 88px; bottom: 170px; }
+    .stack.two { width: 46%; height: 80px; bottom: 246px; }
+    .cream-top {
+      position: absolute; left: 50%; transform: translateX(-50%);
+      width: 36%; height: 88px; bottom: 320px;
+      background: linear-gradient(180deg, #fffdfb, #fff5f0);
+      border-radius: 999px 999px 32px 32px;
+    }
+    .berry, .berry-small {
+      position: absolute; border-radius: 50%;
+      background: #d95d6d;
+      box-shadow: inset -6px -8px 0 rgba(140,24,48,.14);
+    }
+    .berry.a { width: 54px; height: 54px; bottom: 352px; left: 34%; }
+    .berry.b { width: 58px; height: 58px; bottom: 372px; left: 47%; }
+    .berry.c { width: 54px; height: 54px; bottom: 352px; right: 34%; }
+    .steam {
+      position: absolute; width: 10px; height: 112px; border-radius: 999px;
+      background: linear-gradient(180deg, rgba(207,162,154,0), rgba(207,162,154,.95));
+      filter: blur(2px); opacity: .6;
+    }
+    .steam.s1 { top: 90px; left: 48%; }
+    .steam.s2 { top: 110px; left: 42%; height: 92px; }
+    .steam.s3 { top: 110px; left: 56%; height: 92px; }
+    section { padding: 34px 0 78px; }
+    .section-head { max-width: 720px; margin-bottom: 26px; }
+    .section-label {
+      color: var(--rose);
+      letter-spacing: .22em;
+      text-transform: uppercase;
+      font-size: 12px;
+      font-weight: 700;
+    }
+    .cards-3, .cards-4, .drinks, .access-grid {
+      display: grid;
+      gap: 20px;
+    }
+    .cards-3 { grid-template-columns: repeat(3, 1fr); }
+    .cards-4 { grid-template-columns: repeat(4, 1fr); }
+    .drinks { grid-template-columns: .95fr 1.05fr; align-items: stretch; }
+    .access-grid { grid-template-columns: repeat(2, 1fr); }
+    .card {
+      background: var(--card);
+      border-radius: 30px;
+      padding: 24px;
+      box-shadow: 0 14px 34px rgba(75,63,58,.06);
+    }
+    .art-small { min-height: 240px; margin-bottom: 16px; }
+    .mini-stack.one { width: 58%; height: 52px; bottom: 82px; }
+    .mini-stack.two { width: 50%; height: 46px; bottom: 126px; }
+    .mini-cream {
+      position: absolute; left: 50%; transform: translateX(-50%);
+      width: 40%; height: 48px; bottom: 164px;
+      background: linear-gradient(180deg, #fffdfb, #fff6f1);
+      border-radius: 999px;
+    }
+    .berry-small.a { width: 28px; height: 28px; left: 34%; bottom: 176px; }
+    .berry-small.b { width: 30px; height: 30px; left: 47%; bottom: 190px; }
+    .berry-small.c { width: 28px; height: 28px; right: 34%; bottom: 176px; }
+    .price {
+      display: inline-block;
+      padding: 6px 12px;
+      border-radius: 999px;
+      background: var(--blush);
+      color: var(--rose);
+      font-size: 12px;
+      font-weight: 700;
+    }
+    .room-art {
+      min-height: 100%;
+      background:
+        linear-gradient(180deg, #fff8f1 0%, #f1dccd 72%, #c99769 72%, #b88154 100%);
+    }
+    .window, .frame, .table {
+      position: absolute;
+      background: rgba(255,255,255,.92);
+      border-radius: 24px;
+    }
+    .window { width: 38%; height: 42%; right: 12%; top: 10%; }
+    .frame { inset: 10% 10%; background: linear-gradient(180deg, #fdfcf8, #d7edf8); border-radius: 18px; }
+    .table.left, .table.right { height: 18px; background: #a66a44; border-radius: 999px; }
+    .table.left { width: 28%; left: 14%; bottom: 26%; }
+    .table.right { width: 30%; right: 12%; bottom: 20%; }
+    .chair {
+      position: absolute; width: 44px; height: 44px; border-radius: 50%;
+      background: #c98f7a;
+      bottom: 14%;
+    }
+    .chair.one { left: 18%; }
+    .chair.two { right: 20%; background: #dab09d; }
+    .dark-band {
+      background: var(--cocoa);
+      color: #fff;
+      border-radius: 38px;
+      padding: 32px;
+    }
+    .info-list, .drink-list { display: grid; gap: 12px; }
+    .info-item, .drink-item {
+      display: flex; justify-content: space-between; gap: 18px;
+      padding: 14px 16px; border-radius: 18px; background: rgba(255,255,255,.76);
+    }
+    .cta {
+      text-align: center;
+      border-radius: 40px;
+      padding: 44px 24px;
+      background: linear-gradient(135deg, var(--apricot), #f5d7cb);
+      box-shadow: 0 24px 60px rgba(75,63,58,.08);
+    }
+    footer { padding: 28px 0 44px; border-top: 1px solid #f0ddd4; font-size: 14px; }
+    .footer-row { display: flex; justify-content: space-between; gap: 20px; align-items: center; flex-wrap: wrap; }
+    @media (max-width: 920px) {
+      .hero, .cards-3, .cards-4, .drinks, .access-grid { grid-template-columns: 1fr; }
+      .hero-art { min-height: 420px; }
+      .nav-links { display: none; }
+      .stats { grid-template-columns: 1fr; }
+    }
+  </style>
 </head>
-<body class="bg-cream font-sans text-cocoa antialiased">
-  <div class="min-h-screen bg-glow">
-    <!-- Header -->
-    <header class="sticky top-0 z-20 border-b border-[#f3e2d9]/80 bg-[rgba(255,250,245,0.85)] backdrop-blur">
-      <div class="mx-auto flex max-w-6xl items-center justify-between px-4 py-4 md:px-6 lg:px-8">
-        <a href="#home" class="font-display text-xl font-semibold tracking-[0.18em] text-cocoa md:text-2xl">Lumiere</a>
-        <nav class="hidden items-center gap-6 text-sm md:flex">
-          <a href="#home" class="transition hover:text-rosewood">Home</a>
-          <a href="#menu" class="transition hover:text-rosewood">Menu</a>
-          <a href="#gallery" class="transition hover:text-rosewood">Gallery</a>
-          <a href="#access" class="transition hover:text-rosewood">Access</a>
-        </nav>
+<body>
+  <header>
+    <div class="wrap nav">
+      <a class="brand" href="#home">Lumiere</a>
+      <nav class="nav-links">
+        <a href="#home">Home</a>
+        <a href="#menu">Menu</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#access">Access</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section id="home" class="hero">
+      <div>
+        <span class="eyebrow">ふわっと甘い、やさしいひととき。</span>
+        <h1>ふわっとほどける、<br>しあわせパンケーキ。</h1>
+        <p class="lead">やさしい甘さと、くつろぎの空間。毎日頑張るあなたに、ごほうびのカフェ時間を。木のぬくもりと香ばしい香りに包まれる、Lumiere のひと皿をどうぞ。</p>
+        <div class="actions">
+          <a class="btn btn-primary" href="#menu">メニューを見る</a>
+          <a class="btn btn-secondary" href="#gallery">お店を見る</a>
+        </div>
+        <div class="stats">
+          <div><div class="stat-label">Open</div><div class="stat-value">10:00-18:00</div></div>
+          <div><div class="stat-label">Seats</div><div class="stat-value">26席</div></div>
+          <div><div class="stat-label">Walk</div><div class="stat-value">駅徒歩5分</div></div>
+        </div>
       </div>
-    </header>
-
-    <main>
-      <!-- Hero -->
-      <section id="home" class="overflow-hidden px-4 py-16 md:px-6 md:py-24 lg:px-8">
-        <div class="mx-auto grid max-w-6xl items-center gap-10 md:grid-cols-[1.05fr_0.95fr]">
-          <div class="relative">
-            <div class="mb-6 inline-flex items-center gap-2 rounded-full bg-white/80 px-4 py-2 text-xs uppercase tracking-[0.22em] text-rosewood shadow-sm">
-              <span class="h-2 w-2 rounded-full bg-rosewood"></span>
-              ふわっと甘い、やさしいひととき。
-            </div>
-            <h1 class="font-display text-4xl leading-tight md:text-6xl">
-              ふわっとほどける、
-              <span class="block text-rosewood">しあわせパンケーキ。</span>
-            </h1>
-            <p class="mt-6 max-w-xl text-base leading-8 text-cocoa/80 md:text-lg">
-              やさしい甘さと、くつろぎの空間。毎日頑張るあなたに、ごほうびのカフェ時間を。木のぬくもりと香ばしい香りに包まれる、Lumiere のひと皿をどうぞ。
-            </p>
-            <div class="mt-8 flex flex-col gap-3 sm:flex-row">
-              <a href="#menu" class="inline-flex items-center justify-center rounded-full bg-rosewood px-7 py-3 text-sm font-medium text-white shadow-soft transition hover:bg-[#b97b65]">
-                メニューを見る
-              </a>
-              <a href="#gallery" class="inline-flex items-center justify-center rounded-full border border-rosewood/30 bg-white/80 px-7 py-3 text-sm font-medium text-cocoa transition hover:border-rosewood hover:text-rosewood">
-                お店を見る
-              </a>
-            </div>
-            <dl class="mt-10 grid max-w-lg grid-cols-3 gap-4 rounded-[2rem] bg-white/70 p-5 shadow-sm backdrop-blur">
-              <div>
-                <dt class="text-xs uppercase tracking-[0.2em] text-cocoa/50">Open</dt>
-                <dd class="mt-2 text-lg font-semibold">10:00-18:00</dd>
-              </div>
-              <div>
-                <dt class="text-xs uppercase tracking-[0.2em] text-cocoa/50">Seats</dt>
-                <dd class="mt-2 text-lg font-semibold">26席</dd>
-              </div>
-              <div>
-                <dt class="text-xs uppercase tracking-[0.2em] text-cocoa/50">Walk</dt>
-                <dd class="mt-2 text-lg font-semibold">駅徒歩5分</dd>
-              </div>
-            </dl>
-          </div>
-          <div class="relative">
-            <div class="absolute -left-6 top-6 hidden h-24 w-24 rounded-full bg-butter/80 blur-2xl md:block"></div>
-            <div class="absolute -right-8 bottom-8 hidden h-28 w-28 rounded-full bg-apricot/60 blur-2xl md:block"></div>
-            <div class="relative overflow-hidden rounded-[2.5rem] bg-white p-3 shadow-soft">
-              <img
-                src="./images/hero-pancakes-clean.svg"
-                alt="ふわふわのパンケーキ"
-                class="h-[420px] w-full rounded-[2rem] object-cover md:h-[560px]"
-              >
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- Features -->
-      <section class="px-4 py-16 md:px-6 md:py-24 lg:px-8">
-        <div class="mx-auto max-w-6xl">
-          <div class="max-w-2xl">
-            <p class="text-sm uppercase tracking-[0.28em] text-rosewood">Our Charm</p>
-            <h2 class="mt-3 font-display text-3xl md:text-5xl">やさしく寄り添う、3つの魅力</h2>
-          </div>
-          <div class="mt-10 grid gap-6 md:grid-cols-3">
-            <article class="rounded-[2rem] bg-white p-8 shadow-sm">
-              <div class="flex h-12 w-12 items-center justify-center rounded-2xl bg-blush text-2xl">☁</div>
-              <h3 class="mt-6 text-xl font-semibold">ふわふわ食感</h3>
-              <p class="mt-3 text-sm leading-7 text-cocoa/75">口の中でほどける、軽やかな焼き上がり。ひと口ごとにやわらかな幸せが広がります。</p>
-            </article>
-            <article class="rounded-[2rem] bg-white p-8 shadow-sm">
-              <div class="flex h-12 w-12 items-center justify-center rounded-2xl bg-blush text-2xl">⌂</div>
-              <h3 class="mt-6 text-xl font-semibold">落ち着く空間</h3>
-              <p class="mt-3 text-sm leading-7 text-cocoa/75">木のぬくもりを感じる、やさしい店内デザイン。思わず長居したくなる居心地のよさです。</p>
-            </article>
-            <article class="rounded-[2rem] bg-white p-8 shadow-sm">
-              <div class="flex h-12 w-12 items-center justify-center rounded-2xl bg-blush text-2xl">☕</div>
-              <h3 class="mt-6 text-xl font-semibold">ドリンクとの相性</h3>
-              <p class="mt-3 text-sm leading-7 text-cocoa/75">コーヒーや紅茶と一緒に楽しめる贅沢な時間。甘さと香りがゆるやかに重なります。</p>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <!-- Menu -->
-      <section id="menu" class="bg-white/60 px-4 py-16 md:px-6 md:py-24 lg:px-8">
-        <div class="mx-auto max-w-6xl">
-          <div class="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
-            <div class="max-w-2xl">
-              <p class="text-sm uppercase tracking-[0.28em] text-rosewood">Popular Menu</p>
-              <h2 class="mt-3 font-display text-3xl md:text-5xl">心ほどける人気メニュー</h2>
-            </div>
-            <p class="max-w-md text-sm leading-7 text-cocoa/75">
-              王道の一皿から季節の彩りまで。写真を見た瞬間に「食べたい」が伝わる、Lumiere のおすすめを揃えました。
-            </p>
-          </div>
-          <div class="mt-10 grid gap-6 md:grid-cols-2 xl:grid-cols-4">
-            <article class="overflow-hidden rounded-[2rem] bg-white shadow-sm">
-              <img src="./images/menu-berry-clean.svg" alt="ベリーホイップパンケーキ" class="h-60 w-full object-cover">
-              <div class="p-6">
-                <div class="flex items-start justify-between gap-3">
-                  <h3 class="text-lg font-semibold">ベリーホイップパンケーキ</h3>
-                  <span class="rounded-full bg-blush px-3 py-1 text-xs font-medium text-rosewood">¥1,480</span>
-                </div>
-                <p class="mt-3 text-sm leading-7 text-cocoa/75">甘酸っぱいベリーとふんわりホイップの定番人気。軽やかな甘さが広がる一皿です。</p>
-              </div>
-            </article>
-            <article class="overflow-hidden rounded-[2rem] bg-white shadow-sm">
-              <img src="./images/menu-berry-clean.svg" alt="メープルバターパンケーキ" class="h-60 w-full object-cover">
-              <div class="p-6">
-                <div class="flex items-start justify-between gap-3">
-                  <h3 class="text-lg font-semibold">メープルバターパンケーキ</h3>
-                  <span class="rounded-full bg-blush px-3 py-1 text-xs font-medium text-rosewood">¥1,200</span>
-                </div>
-                <p class="mt-3 text-sm leading-7 text-cocoa/75">シンプルだからこそ味わえる、王道のおいしさ。香るバターとメープルが絶妙です。</p>
-              </div>
-            </article>
-            <article class="overflow-hidden rounded-[2rem] bg-white shadow-sm">
-              <img src="./images/menu-berry-clean.svg" alt="抹茶あずきパンケーキ" class="h-60 w-full object-cover">
-              <div class="p-6">
-                <div class="flex items-start justify-between gap-3">
-                  <h3 class="text-lg font-semibold">抹茶あずきパンケーキ</h3>
-                  <span class="rounded-full bg-blush px-3 py-1 text-xs font-medium text-rosewood">¥1,420</span>
-                </div>
-                <p class="mt-3 text-sm leading-7 text-cocoa/75">和の風味を楽しめる、上品な甘さの一皿。ほろ苦い抹茶がふわふわ生地に寄り添います。</p>
-              </div>
-            </article>
-            <article class="overflow-hidden rounded-[2rem] bg-white shadow-sm">
-              <img src="./images/menu-berry-clean.svg" alt="季節のフルーツパンケーキ" class="h-60 w-full object-cover">
-              <div class="p-6">
-                <div class="flex items-start justify-between gap-3">
-                  <h3 class="text-lg font-semibold">季節のフルーツパンケーキ</h3>
-                  <span class="rounded-full bg-blush px-3 py-1 text-xs font-medium text-rosewood">¥1,650</span>
-                </div>
-                <p class="mt-3 text-sm leading-7 text-cocoa/75">旬のフルーツを彩り豊かに盛り付けた特別メニュー。季節ごとの楽しみがあります。</p>
-              </div>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <!-- Drinks -->
-      <section class="px-4 py-16 md:px-6 md:py-24 lg:px-8">
-        <div class="mx-auto grid max-w-6xl gap-8 md:grid-cols-[0.9fr_1.1fr]">
-          <div class="rounded-[2rem] bg-blush p-8 shadow-sm">
-            <p class="text-sm uppercase tracking-[0.28em] text-rosewood">Drink Menu</p>
-            <h2 class="mt-3 font-display text-3xl md:text-4xl">パンケーキに寄り添う、やさしい一杯</h2>
-            <p class="mt-5 text-sm leading-7 text-cocoa/75">
-              甘さを引き立てるコーヒー、香りを楽しむ紅茶、すっきりとしたソーダまで。その日の気分で選べるドリンクをご用意しています。
-            </p>
-            <ul class="mt-8 space-y-4">
-              <li class="flex items-center justify-between rounded-2xl bg-white/75 px-4 py-4 text-sm">
-                <span>ブレンドコーヒー</span>
-                <span class="font-semibold text-rosewood">¥520</span>
-              </li>
-              <li class="flex items-center justify-between rounded-2xl bg-white/75 px-4 py-4 text-sm">
-                <span>カフェラテ</span>
-                <span class="font-semibold text-rosewood">¥580</span>
-              </li>
-              <li class="flex items-center justify-between rounded-2xl bg-white/75 px-4 py-4 text-sm">
-                <span>アールグレイティー</span>
-                <span class="font-semibold text-rosewood">¥540</span>
-              </li>
-              <li class="flex items-center justify-between rounded-2xl bg-white/75 px-4 py-4 text-sm">
-                <span>フルーツソーダ</span>
-                <span class="font-semibold text-rosewood">¥620</span>
-              </li>
-              <li class="flex items-center justify-between rounded-2xl bg-white/75 px-4 py-4 text-sm">
-                <span>自家製レモネード</span>
-                <span class="font-semibold text-rosewood">¥650</span>
-              </li>
-            </ul>
-          </div>
-          <div class="grid gap-6 sm:grid-cols-3">
-            <img src="./images/gallery-interior-clean.svg" alt="コーヒー" class="h-64 w-full rounded-[2rem] object-cover shadow-sm sm:h-full">
-            <img src="./images/gallery-interior-clean.svg" alt="紅茶" class="h-64 w-full rounded-[2rem] object-cover shadow-sm sm:h-full">
-            <img src="./images/gallery-interior-clean.svg" alt="レモネード" class="h-64 w-full rounded-[2rem] object-cover shadow-sm sm:h-full">
-          </div>
-        </div>
-      </section>
-
-      <!-- Gallery -->
-      <section id="gallery" class="bg-white/60 px-4 py-16 md:px-6 md:py-24 lg:px-8">
-        <div class="mx-auto max-w-6xl">
-          <div class="grid gap-10 md:grid-cols-[0.95fr_1.05fr] md:items-center">
-            <div>
-              <p class="text-sm uppercase tracking-[0.28em] text-rosewood">Gallery</p>
-              <h2 class="mt-3 font-display text-3xl md:text-5xl">木のぬくもりに包まれる、やさしい空間</h2>
-              <p class="mt-6 text-sm leading-8 text-cocoa/75 md:text-base">
-                木のぬくもりを感じる、ほっと落ち着く空間。初めての方でも入りやすく、友人とのカフェ時間にも、一人でのんびり過ごしたい日にもぴったりです。
-              </p>
-              <div class="mt-8 rounded-[2rem] bg-blush p-6">
-                <p class="text-sm leading-7">
-                  大きな窓からやわらかな光が差し込み、テーブルごとに程よい距離感を確保。おしゃべりの時間も、静かなひとり時間も心地よく過ごせます。
-                </p>
-              </div>
-            </div>
-            <div class="grid gap-6 md:grid-cols-2">
-              <img src="./images/gallery-interior-clean.svg" alt="店舗外観" class="h-80 w-full rounded-[2rem] object-cover shadow-sm">
-              <img src="./images/gallery-interior-clean.svg" alt="店内イメージ" class="h-80 w-full rounded-[2rem] object-cover shadow-sm md:mt-12">
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- Convenience -->
-      <section class="px-4 py-16 md:px-6 md:py-24 lg:px-8">
-        <div class="mx-auto max-w-6xl rounded-[2.5rem] bg-cocoa px-6 py-10 text-white md:px-10">
-          <div class="max-w-2xl">
-            <p class="text-sm uppercase tracking-[0.28em] text-apricot">Easy To Visit</p>
-            <h2 class="mt-3 font-display text-3xl md:text-5xl">はじめてでも、ふらっと立ち寄りやすい</h2>
-          </div>
-          <div class="mt-10 grid gap-4 md:grid-cols-2">
-            <div class="rounded-[1.75rem] border border-white/10 bg-white/5 p-5">
-              <p class="text-sm leading-7">✓ ゆったり座れる席あり</p>
-            </div>
-            <div class="rounded-[1.75rem] border border-white/10 bg-white/5 p-5">
-              <p class="text-sm leading-7">✓ おひとりさまでも利用しやすい</p>
-            </div>
-            <div class="rounded-[1.75rem] border border-white/10 bg-white/5 p-5">
-              <p class="text-sm leading-7">✓ 写真映えする盛り付け</p>
-            </div>
-            <div class="rounded-[1.75rem] border border-white/10 bg-white/5 p-5">
-              <p class="text-sm leading-7">✓ 季節限定メニューあり</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- Access -->
-      <section id="access" class="bg-white/60 px-4 py-16 md:px-6 md:py-24 lg:px-8">
-        <div class="mx-auto max-w-6xl">
-          <div class="max-w-2xl">
-            <p class="text-sm uppercase tracking-[0.28em] text-rosewood">Access</p>
-            <h2 class="mt-3 font-display text-3xl md:text-5xl">来店前に、必要な情報をシンプルに</h2>
-          </div>
-          <div class="mt-10 grid gap-6 md:grid-cols-2">
-            <div class="rounded-[2rem] bg-white p-8 shadow-sm">
-              <dl class="space-y-5 text-sm">
-                <div class="flex flex-col gap-2 border-b border-blush pb-5 sm:flex-row sm:justify-between">
-                  <dt class="text-cocoa/55">店名</dt>
-                  <dd class="font-medium">Pancake Cafe Lumiere</dd>
-                </div>
-                <div class="flex flex-col gap-2 border-b border-blush pb-5 sm:flex-row sm:justify-between">
-                  <dt class="text-cocoa/55">住所</dt>
-                  <dd class="font-medium">東京都○○区○○1-2-3</dd>
-                </div>
-                <div class="flex flex-col gap-2 border-b border-blush pb-5 sm:flex-row sm:justify-between">
-                  <dt class="text-cocoa/55">営業時間</dt>
-                  <dd class="font-medium">10:00〜18:00</dd>
-                </div>
-                <div class="flex flex-col gap-2 border-b border-blush pb-5 sm:flex-row sm:justify-between">
-                  <dt class="text-cocoa/55">定休日</dt>
-                  <dd class="font-medium">火曜日</dd>
-                </div>
-                <div class="flex flex-col gap-2 border-b border-blush pb-5 sm:flex-row sm:justify-between">
-                  <dt class="text-cocoa/55">最寄駅</dt>
-                  <dd class="font-medium">○○駅 徒歩5分</dd>
-                </div>
-                <div class="flex flex-col gap-2 sm:flex-row sm:justify-between">
-                  <dt class="text-cocoa/55">TEL</dt>
-                  <dd class="font-medium">00-1234-5678</dd>
-                </div>
-              </dl>
-            </div>
-            <div class="rounded-[2rem] bg-blush p-8 shadow-sm">
-              <h3 class="text-xl font-semibold">こんな時間におすすめ</h3>
-              <p class="mt-4 text-sm leading-7 text-cocoa/75">
-                お昼のカフェタイムはもちろん、少し早めの午後にゆったりと過ごしたい日にぴったり。友人とのおしゃべりにも、自分へのごほうび時間にもおすすめです。
-              </p>
-              <div class="mt-8 grid gap-4 sm:grid-cols-2">
-                <div class="rounded-[1.5rem] bg-white/80 p-5">
-                  <p class="text-xs uppercase tracking-[0.24em] text-rosewood">Recommended</p>
-                  <p class="mt-3 text-sm leading-7">14時前後は、自然光がやわらかく写真もきれいに撮れます。</p>
-                </div>
-                <div class="rounded-[1.5rem] bg-white/80 p-5">
-                  <p class="text-xs uppercase tracking-[0.24em] text-rosewood">Seat Style</p>
-                  <p class="mt-3 text-sm leading-7">2名席からゆったり座れるテーブル席まで、用途に合わせて使いやすい設計です。</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- CTA -->
-      <section class="px-4 py-16 md:px-6 md:py-24 lg:px-8">
-        <div class="mx-auto max-w-5xl rounded-[2.5rem] bg-gradient-to-r from-apricot to-[#f5d7cb] px-6 py-12 text-center shadow-soft md:px-10">
-          <p class="text-sm uppercase tracking-[0.28em] text-cocoa/70">Cafe Time</p>
-          <h2 class="mt-3 font-display text-3xl md:text-5xl">今日は、甘くてやさしい時間を。</h2>
-          <p class="mx-auto mt-5 max-w-2xl text-sm leading-8 text-cocoa/80 md:text-base">
-            ふわふわのパンケーキと一緒に、ほっと一息つけるひとときをお楽しみください。気分に寄り添う一皿とともに、心までほどける時間をお届けします。
-          </p>
-          <div class="mt-8 flex flex-col justify-center gap-3 sm:flex-row">
-            <a href="#menu" class="inline-flex items-center justify-center rounded-full bg-cocoa px-8 py-4 text-sm font-medium text-white transition hover:bg-[#382e2a]">
-              メニューを見る
-            </a>
-            <a href="#access" class="inline-flex items-center justify-center rounded-full border border-cocoa/20 bg-white/80 px-8 py-4 text-sm font-medium text-cocoa transition hover:border-cocoa/40">
-              アクセスを確認する
-            </a>
-          </div>
-        </div>
-      </section>
-    </main>
-
-    <!-- Footer -->
-    <footer class="border-t border-[#f0ddd4] px-4 py-10 md:px-6 lg:px-8">
-      <div class="mx-auto flex max-w-6xl flex-col gap-6 text-sm text-cocoa/70 md:flex-row md:items-center md:justify-between">
-        <div>
-          <p class="font-display text-xl text-cocoa">Pancake Cafe Lumiere</p>
-          <p class="mt-2">ふわっと甘い、やさしいひととき。</p>
-        </div>
-        <div class="flex gap-5">
-          <a href="#" class="transition hover:text-rosewood">Instagram</a>
-          <a href="#" class="transition hover:text-rosewood">X</a>
-          <a href="#" class="transition hover:text-rosewood">Facebook</a>
-        </div>
-        <p>© 2026 Pancake Cafe Lumiere. All Rights Reserved.</p>
+      <div class="hero-art" aria-label="パンケーキのイメージ">
+        <div class="steam s1"></div>
+        <div class="steam s2"></div>
+        <div class="steam s3"></div>
+        <div class="cream-top"></div>
+        <div class="berry a"></div>
+        <div class="berry b"></div>
+        <div class="berry c"></div>
+        <div class="stack two"></div>
+        <div class="stack one"></div>
+        <div class="plate"></div>
       </div>
-    </footer>
-  </div>
+    </section>
+
+    <section>
+      <div class="section-head">
+        <div class="section-label">Our Charm</div>
+        <h2>やさしく寄り添う、3つの魅力</h2>
+      </div>
+      <div class="cards-3">
+        <article class="card"><strong>ふわふわ食感</strong><p>口の中でほどける、軽やかな焼き上がり。ひと口ごとにやわらかな幸せが広がります。</p></article>
+        <article class="card"><strong>落ち着く空間</strong><p>木のぬくもりを感じる、やさしい店内デザイン。思わず長居したくなる居心地のよさです。</p></article>
+        <article class="card"><strong>ドリンクとの相性</strong><p>コーヒーや紅茶と一緒に楽しめる贅沢な時間。甘さと香りがゆるやかに重なります。</p></article>
+      </div>
+    </section>
+
+    <section id="menu">
+      <div class="section-head">
+        <div class="section-label">Popular Menu</div>
+        <h2>心ほどける人気メニュー</h2>
+      </div>
+      <div class="cards-4">
+        <article class="card">
+          <div class="art-small"><div class="mini-cream"></div><div class="berry-small a"></div><div class="berry-small b"></div><div class="berry-small c"></div><div class="mini-stack two"></div><div class="mini-stack one"></div><div class="mini-plate"></div></div>
+          <div class="price">¥1,480</div><p><strong>ベリーホイップパンケーキ</strong><br>甘酸っぱいベリーとふんわりホイップの定番人気。</p>
+        </article>
+        <article class="card">
+          <div class="art-small"><div class="mini-cream"></div><div class="mini-stack two"></div><div class="mini-stack one"></div><div class="mini-plate"></div></div>
+          <div class="price">¥1,200</div><p><strong>メープルバターパンケーキ</strong><br>シンプルだからこそ味わえる、王道のおいしさ。</p>
+        </article>
+        <article class="card">
+          <div class="art-small"><div class="mini-cream"></div><div class="mini-stack two"></div><div class="mini-stack one"></div><div class="mini-plate"></div></div>
+          <div class="price">¥1,420</div><p><strong>抹茶あずきパンケーキ</strong><br>和の風味を楽しめる、上品な甘さの一皿。</p>
+        </article>
+        <article class="card">
+          <div class="art-small"><div class="mini-cream"></div><div class="berry-small a"></div><div class="berry-small c"></div><div class="mini-stack two"></div><div class="mini-stack one"></div><div class="mini-plate"></div></div>
+          <div class="price">¥1,650</div><p><strong>季節のフルーツパンケーキ</strong><br>旬のフルーツを彩り豊かに盛り付けた特別メニュー。</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="drinks">
+      <div class="card">
+        <div class="section-label">Drink Menu</div>
+        <h2>パンケーキに寄り添う、やさしい一杯</h2>
+        <p>甘さを引き立てるコーヒー、香りを楽しむ紅茶、すっきりとしたソーダまで。その日の気分で選べるドリンクをご用意しています。</p>
+        <div class="drink-list">
+          <div class="drink-item"><span>ブレンドコーヒー</span><strong>¥520</strong></div>
+          <div class="drink-item"><span>カフェラテ</span><strong>¥580</strong></div>
+          <div class="drink-item"><span>アールグレイティー</span><strong>¥540</strong></div>
+          <div class="drink-item"><span>フルーツソーダ</span><strong>¥620</strong></div>
+          <div class="drink-item"><span>自家製レモネード</span><strong>¥650</strong></div>
+        </div>
+      </div>
+      <div id="gallery" class="hero-art room-art" aria-label="店内イメージ">
+        <div class="window"><div class="frame"></div></div>
+        <div class="table left"></div>
+        <div class="table right"></div>
+        <div class="chair one"></div>
+        <div class="chair two"></div>
+      </div>
+    </section>
+
+    <section>
+      <div class="dark-band">
+        <div class="section-label" style="color:#f2c8b8;">Easy To Visit</div>
+        <h2>はじめてでも、ふらっと立ち寄りやすい</h2>
+        <div class="cards-4" style="margin-top:24px;">
+          <div class="card">ゆったり座れる席あり</div>
+          <div class="card">おひとりさまでも利用しやすい</div>
+          <div class="card">写真映えする盛り付け</div>
+          <div class="card">季節限定メニューあり</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="access">
+      <div class="section-head">
+        <div class="section-label">Access</div>
+        <h2>来店前に、必要な情報をシンプルに</h2>
+      </div>
+      <div class="access-grid">
+        <div class="card info-list">
+          <div class="info-item"><span>店名</span><strong>Pancake Cafe Lumiere</strong></div>
+          <div class="info-item"><span>住所</span><strong>東京都○○区○○1-2-3</strong></div>
+          <div class="info-item"><span>営業時間</span><strong>10:00〜18:00</strong></div>
+          <div class="info-item"><span>定休日</span><strong>火曜日</strong></div>
+          <div class="info-item"><span>最寄駅</span><strong>○○駅 徒歩5分</strong></div>
+          <div class="info-item"><span>TEL</span><strong>00-1234-5678</strong></div>
+        </div>
+        <div class="card">
+          <strong>こんな時間におすすめ</strong>
+          <p>お昼のカフェタイムはもちろん、少し早めの午後にゆったりと過ごしたい日にぴったり。友人とのおしゃべりにも、自分へのごほうび時間にもおすすめです。</p>
+          <div class="info-list">
+            <div class="info-item"><span>Recommended</span><strong>14時前後は自然光がきれい</strong></div>
+            <div class="info-item"><span>Seat Style</span><strong>2名席からゆったり席まで対応</strong></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="cta">
+        <div class="section-label" style="color:rgba(75,63,58,.72);">Cafe Time</div>
+        <h2>今日は、甘くてやさしい時間を。</h2>
+        <p>ふわふわのパンケーキと一緒に、ほっと一息つけるひとときをお楽しみください。気分に寄り添う一皿とともに、心までほどける時間をお届けします。</p>
+        <div class="actions" style="justify-content:center;">
+          <a class="btn btn-primary" href="#menu">メニューを見る</a>
+          <a class="btn btn-secondary" href="#access">アクセスを確認する</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap footer-row">
+      <div><strong style="font-family:Georgia, 'Times New Roman', serif;">Pancake Cafe Lumiere</strong><br>ふわっと甘い、やさしいひととき。</div>
+      <div>© 2026 Pancake Cafe Lumiere. All Rights Reserved.</div>
+    </div>
+  </footer>
 </body>
 </html>
