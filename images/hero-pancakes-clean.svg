@@ -1,0 +1,46 @@
+<svg width="1200" height="900" viewBox="0 0 1200 900" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="120" y1="80" x2="1040" y2="820" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFF8F0"/>
+      <stop offset="1" stop-color="#F6D8CB"/>
+    </linearGradient>
+    <linearGradient id="plate" x1="320" y1="520" x2="880" y2="760" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFFDFB"/>
+      <stop offset="1" stop-color="#F4E6DF"/>
+    </linearGradient>
+    <linearGradient id="cake" x1="430" y1="320" x2="780" y2="600" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#F7D89A"/>
+      <stop offset="1" stop-color="#D8A865"/>
+    </linearGradient>
+    <filter id="shadow" x="-40" y="-40" width="1280" height="980" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feDropShadow dx="0" dy="24" stdDeviation="24" flood-color="#9A6B5A" flood-opacity="0.18"/>
+    </filter>
+  </defs>
+  <rect width="1200" height="900" rx="48" fill="url(#bg)"/>
+  <circle cx="176" cy="170" r="96" fill="#FFEFC9" opacity="0.9"/>
+  <circle cx="1040" cy="182" r="82" fill="#F5C6B4" opacity="0.55"/>
+  <circle cx="1014" cy="726" r="130" fill="#FFE8D8" opacity="0.75"/>
+  <g filter="url(#shadow)">
+    <ellipse cx="602" cy="678" rx="322" ry="90" fill="url(#plate)"/>
+    <ellipse cx="602" cy="690" rx="260" ry="52" fill="#E9D5CC"/>
+    <ellipse cx="602" cy="564" rx="182" ry="42" fill="#D9A361"/>
+    <rect x="420" y="480" width="364" height="92" rx="44" fill="url(#cake)"/>
+    <ellipse cx="602" cy="480" rx="182" ry="40" fill="#F4C879"/>
+    <ellipse cx="602" cy="468" rx="174" ry="32" fill="#F8DCA1"/>
+    <rect x="442" y="404" width="320" height="86" rx="42" fill="url(#cake)"/>
+    <ellipse cx="602" cy="404" rx="160" ry="36" fill="#F4CB81"/>
+    <ellipse cx="602" cy="392" rx="154" ry="28" fill="#FAE0AE"/>
+    <path d="M470 382C470 340 504 304 546 304H658C700 304 734 340 734 382V392H470V382Z" fill="#FFF8F6"/>
+    <path d="M510 352C534 324 564 314 602 314C640 314 670 324 694 352C670 372 640 380 602 380C564 380 534 372 510 352Z" fill="#FFFDFB"/>
+    <circle cx="522" cy="350" r="22" fill="#D95663"/>
+    <circle cx="686" cy="350" r="22" fill="#D95663"/>
+    <circle cx="602" cy="334" r="24" fill="#E7616B"/>
+    <circle cx="570" cy="360" r="18" fill="#C83F55"/>
+    <circle cx="638" cy="360" r="18" fill="#C83F55"/>
+    <path d="M602 244C584 220 586 196 604 176C628 150 626 124 604 100" stroke="#CFA29A" stroke-width="10" stroke-linecap="round"/>
+    <path d="M650 254C636 236 636 212 650 196C668 176 668 152 654 132" stroke="#D6A79F" stroke-width="8" stroke-linecap="round"/>
+    <path d="M552 254C538 236 538 212 552 196C570 176 570 152 556 132" stroke="#D6A79F" stroke-width="8" stroke-linecap="round"/>
+  </g>
+  <text x="88" y="780" fill="#6A4F45" font-family="Georgia, 'Times New Roman', serif" font-size="72" letter-spacing="4">Pancake Cafe Lumiere</text>
+  <text x="94" y="834" fill="#B57B69" font-family="'Hiragino Sans', 'Yu Gothic', sans-serif" font-size="28">Freshly baked pancakes, berries, and a gentle cafe morning.</text>
+</svg>

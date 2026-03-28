@@ -1,0 +1,37 @@
+<svg width="900" height="700" viewBox="0 0 900 700" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="120" y1="70" x2="760" y2="620" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFF9F5"/>
+      <stop offset="1" stop-color="#F7D9D2"/>
+    </linearGradient>
+    <linearGradient id="pancake" x1="265" y1="220" x2="650" y2="520" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#F6D58A"/>
+      <stop offset="1" stop-color="#C9924A"/>
+    </linearGradient>
+    <filter id="shadow" x="60" y="80" width="780" height="560" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feDropShadow dx="0" dy="18" stdDeviation="20" flood-color="#8E6356" flood-opacity="0.16"/>
+    </filter>
+  </defs>
+  <rect width="900" height="700" rx="40" fill="url(#bg)"/>
+  <circle cx="128" cy="130" r="64" fill="#FFEBC8"/>
+  <circle cx="780" cy="126" r="46" fill="#FFD8D1" opacity="0.8"/>
+  <g filter="url(#shadow)">
+    <ellipse cx="450" cy="542" rx="250" ry="72" fill="#FFFDFB"/>
+    <ellipse cx="450" cy="552" rx="210" ry="42" fill="#E7D4CC"/>
+    <rect x="260" y="360" width="380" height="94" rx="47" fill="url(#pancake)"/>
+    <ellipse cx="450" cy="360" rx="190" ry="43" fill="#F5CC7D"/>
+    <rect x="280" y="292" width="340" height="88" rx="44" fill="url(#pancake)"/>
+    <ellipse cx="450" cy="292" rx="170" ry="39" fill="#F7D38E"/>
+    <path d="M312 278C312 236 346 202 388 202H514C556 202 590 236 590 278V292H312V278Z" fill="#FFF7F4"/>
+    <path d="M350 246C376 218 410 208 450 208C490 208 524 218 550 246C522 266 490 274 450 274C410 274 378 266 350 246Z" fill="#FFFDFB"/>
+    <circle cx="384" cy="252" r="24" fill="#C83C59"/>
+    <circle cx="516" cy="252" r="24" fill="#C83C59"/>
+    <circle cx="450" cy="230" r="26" fill="#E65867"/>
+    <circle cx="418" cy="270" r="18" fill="#D14B6B"/>
+    <circle cx="484" cy="270" r="18" fill="#D14B6B"/>
+    <path d="M344 384C344 384 404 344 450 392C496 440 556 384 556 384" stroke="#FFF2EF" stroke-width="16" stroke-linecap="round"/>
+    <path d="M344 448C344 448 404 408 450 456C496 504 556 448 556 448" stroke="#F3BD75" stroke-width="14" stroke-linecap="round"/>
+  </g>
+  <text x="70" y="610" fill="#6A4F45" font-family="Georgia, 'Times New Roman', serif" font-size="54">Berry Whipped Pancakes</text>
+  <text x="72" y="652" fill="#B57B69" font-family="'Hiragino Sans', 'Yu Gothic', sans-serif" font-size="22">Crisp SVG artwork for the menu card</text>
+</svg>

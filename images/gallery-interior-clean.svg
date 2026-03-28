@@ -1,0 +1,39 @@
+<svg width="900" height="700" viewBox="0 0 900 700" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="wall" x1="88" y1="68" x2="790" y2="636" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFF8F1"/>
+      <stop offset="1" stop-color="#F0D9C8"/>
+    </linearGradient>
+    <linearGradient id="window" x1="520" y1="110" x2="760" y2="356" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FDFCF7"/>
+      <stop offset="1" stop-color="#D8ECF7"/>
+    </linearGradient>
+    <filter id="shadow" x="80" y="60" width="740" height="560" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feDropShadow dx="0" dy="18" stdDeviation="20" flood-color="#8C6A5B" flood-opacity="0.14"/>
+    </filter>
+  </defs>
+  <rect width="900" height="700" rx="40" fill="url(#wall)"/>
+  <rect y="500" width="900" height="200" fill="#C79667"/>
+  <rect y="540" width="900" height="160" fill="#B88053"/>
+  <g filter="url(#shadow)">
+    <rect x="120" y="120" width="300" height="220" rx="24" fill="#FFF5EE"/>
+    <rect x="146" y="146" width="248" height="168" rx="18" fill="#E7C8AF"/>
+    <rect x="470" y="100" width="300" height="260" rx="26" fill="#FFFDF8"/>
+    <rect x="492" y="122" width="256" height="216" rx="18" fill="url(#window)"/>
+    <rect x="618" y="122" width="4" height="216" fill="#E2D3C7"/>
+    <rect x="492" y="228" width="256" height="4" fill="#E2D3C7"/>
+    <rect x="190" y="382" width="220" height="26" rx="13" fill="#A66A44"/>
+    <rect x="206" y="408" width="22" height="130" rx="11" fill="#8A5332"/>
+    <rect x="372" y="408" width="22" height="130" rx="11" fill="#8A5332"/>
+    <rect x="506" y="402" width="230" height="28" rx="14" fill="#A66A44"/>
+    <rect x="528" y="430" width="22" height="122" rx="11" fill="#8A5332"/>
+    <rect x="692" y="430" width="22" height="122" rx="11" fill="#8A5332"/>
+    <circle cx="252" cy="436" r="46" fill="#C98F7A"/>
+    <circle cx="648" cy="458" r="46" fill="#DAB09D"/>
+    <rect x="132" y="86" width="44" height="58" rx="12" fill="#E8BFAF"/>
+    <rect x="184" y="72" width="44" height="72" rx="12" fill="#E2A98E"/>
+    <rect x="236" y="94" width="44" height="50" rx="12" fill="#EBCDB8"/>
+  </g>
+  <text x="74" y="618" fill="#6A4F45" font-family="Georgia, 'Times New Roman', serif" font-size="52">Warm Interior Atmosphere</text>
+  <text x="76" y="658" fill="#A87461" font-family="'Hiragino Sans', 'Yu Gothic', sans-serif" font-size="22">Clean SVG art for gallery and drink sections</text>
+</svg>
